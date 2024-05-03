@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.bg{
+    --ion-background-color:#fef3c8;
+}
+
+.back-button {
+  font-family: 'Hubballi', sans-serif;
+  position:absolute;
+  top: 20px; 
+  left: 1rem;
+  margin: 10px;
+  --background: #2660A4;
+}
+
+.regis{
+    font-family: 'Hubballi', sans-serif;
+    text-align: center;
+    margin-top: 10%;
+
+    .title{
+        font-size: 50px;
+        font-weight: 800;
+        color: #1B609D;
+        line-height: 3rem;
+        font-family: "Mulish", sans-serif;
+
+    }
+
+    .sub{
+        font-family: "Mulish", sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        color: #1B609D;
+
+    }
+    .form{
+        font-family: "Mulish", sans-serif;
+        font-size: 20px;
+        color: #1B609D;
+        margin-top: 2rem;
+        font-weight: 800;
+    }
+}
+
+.new{
+    
+  font-family: 'Hubballi', sans-serif;
+    font-weight: bold;
+    font-size: small;
+    text-align: center;
+    font-size: 15px;
+    color: #000000;
+
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Hubballi', sans-serif;
+
+}
+
+.btn-color-mode-switch {
+  display: inline-block;
+  margin: 0px;
+  position: relative;
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner {
+  margin: 0px;
+  width: 140px;
+  height: 40px;
+  background-color: #ecbd03;
+  border-radius: 26px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+    /*box-shadow: 0px 0px 8px 0px rgba(17, 17, 17, 0.34) inset;*/
+  display: block;
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner:before {
+  content: attr(data-on);
+  position: absolute;
+  font-size: 20px;
+  font-weight: 600;
+  top: 7px;
+  right: 20px;
+  color: #18568d;
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner:after {
+  content: attr(data-off);
+  width: 70px;
+  height: 25px;
+  background: #18568d;
+  border-radius: 26px;
+  position: absolute;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  left: 2px;
+  top: 2px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 6px -2px #111;
+  padding: 5px 0px;
+  color:#ecbd03;
+  font-weight: 600;
+}
+
+.btn-color-mode-switch input[type="checkbox"] {
+  cursor: pointer;
+  width: 50px;
+  height: 25px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  margin: 0px;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner {
+  background-color: #ecbd03;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner:after {
+  content: attr(data-on);
+  left: 68px;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner:before {
+  content: attr(data-off);
+  right: auto;
+  left: 20px;
+}
+
+
+
+.input {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  width: 85%; 
+  max-height: 60px; /* Set maximum height */
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis; /* Display ellipsis for overflow */
+  white-space: nowrap; /* Prevent wrapping */
+  border-radius: 10px;
+  --background: #fddb54; 
+  background:#fddb54 ;
+  color: #595959;
+  margin: auto; 
+  font-size:15px
+}
+
+.info{
+  margin-top: 0rem;
+  margin-left: 5px;
+}
+
+
+
+  .alert {
+    background-color: white;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: 150px;
+    top: 50%;
+   left: 50%;
+  transform: translate(-50%, -50%);
+  }
+
+ .enroll-but {
+  --background: #2660A4;
+  --border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+a.bn11:hover {
+  border-color: rgb(255, 255, 255);
+}
+.bn34 {
+  background: none;
+  cursor: pointer;
+  text-decoration: inherit;
+  font-size: 1rem;
+  color:#FCCB06;
+  padding: 0.7rem 2rem;
+  border-image-slice: 1;
+}
+
+.validation-message .alert-wrapper {
+  text-align: center; /* Align the header to the center */
+}
+
+.validation-message .alert-message {
+  text-align: justify; /* Justify the message */
+}

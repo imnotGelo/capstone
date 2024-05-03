@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+  <ion-button size="small" class="back-button" (click)="back()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M328 112L184 256l144 144"/></svg>
+    Back
+  </ion-button>
+  <div class="container">
+    <div>
+      <h1>School Calendar</h1>
+      <ion-datetime class="calendar" color="blue" presentation="date" [highlightedDates]="highlightedDates" [isDateEnabled]="isWeekday" (ionChange)="updateSelectedMonth($event)"></ion-datetime>
+    </div>
+  </div><br>
+  <ion-card class="event" *ngFor="let item of filterEvents()" [ngStyle]="getCardStyle(item)">
+    <ion-card-header class="head" >
+      <div class="header-content">
+        <div><strong class="cal-title">{{ item.title }}</strong></div>
+        <div class="post-date">{{ item.start_datetime | date:'mediumDate' }} to {{ item.end_datetime | date:'mediumDate' }}</div>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="content">
+      <div *ngIf="!item.minimized">{{ item.description }}</div>
+      <button ion-button (click)="toggleMinimized(item)" style="font-size: 11px; font-style: italic; font-weight: 500; color: #000000; background-color: transparent; border: none; outline: none;">
+        {{ item.minimized ? 'Expand' : 'Show Less' }}
+      </button>      
+    </ion-card-content>
+  </ion-card>
+</ion-content>

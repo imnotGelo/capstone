@@ -1,0 +1,56 @@
+.page{
+    --ion-background-color: #BEDCFF;
+  }
+
+  .back-button {
+    font-family: 'Hubballi', sans-serif;
+    position:absolute;
+    top: 20px; 
+    left: 1rem;
+    margin: 10px;
+    --border-radius: 10px;
+    --background: linear-gradient(to top, #073965, #074276, #0F4C81, #155790, #1B609D);
+  }
+
+  .grade-card {
+    position: relative;
+    top: 15%;
+    margin: 15px;
+    color: white;
+    font-family: 'Hubballi', sans-serif;
+    text-align: left;
+    --background: #1B609D;
+  }
+  
+  ion-modal {
+    --height: 80%;
+    --border-radius: 16px;
+    margin: 5px;
+    background: transparent;
+  }
+  
+  ion-modal::part(backdrop) {
+    background: rgb(200, 216, 240);
+    opacity: 1;
+  }
+  
+  ion-modal ion-toolbar {
+    --background:#155790;
+    --color: white;
+  }
+
+  .subjects {
+    border-radius: 20px;
+  }
+  .subject-name {
+    --background: #F7D360;
+    font-family: 'Hubballi', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+  }
+
+  .grading{
+    background-color: #D9D9D9;
+    font-family: 'Hubballi', sans-serif;
+  }
+

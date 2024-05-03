@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+ion-content {
+  --ion-background-color: linear-gradient(to bottom, #073965, #074276, #0F4C81, #155790, #1B609D);
+  }
+  
+  .otp-container {
+    text-align: center;
+    margin-top: 20%;
+
+  }
+  
+  .one{
+    display: inline;
+    font-family: "Mulish", sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin-right: 10px;
+    color: #ffffff;
+  }
+
+  .pin{
+    display: inline;
+    font-family: "Mulish", sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    color: #ecbd03;
+  }
+  .p{
+    font-family: "Mulish", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-left: 15px;
+  }
+
+  .otp-inputs {
+    display: flex;
+    justify-content: center;
+  
+    input {
+      width: 40px;
+      height: 40px;
+      margin: 0 5px;
+      text-align: center;
+      font-size: 18px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  
+      &:focus {
+        outline: none;
+        border-color: #007bff;
+      }
+    }
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    width: 50%;
+    height: auto;
+    background-color: #88cafc;
+    color: #073965;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Mulish", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  

@@ -1,0 +1,64 @@
+ion-content {
+    --ion-background-color: linear-gradient(to left, #073965, #074276, #0F4C81, #155790, #1B609D);
+  }
+  
+  .back-button {
+    font-family: 'Hubballi', sans-serif;
+    position:absolute;
+    top: 20px; 
+    left: 1rem;
+    margin: 10px;
+    --border-radius: 10px;
+    --background: linear-gradient(to top, #073965, #074276, #0F4C81, #155790, #1B609D);
+  }
+
+  .announce{
+    font-family: 'Hubballi', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 15%;
+    color: white;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+  }
+
+  .event{
+    background: rgba(7, 57, 101, 0.49);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(7, 57, 101, 0.3);
+  }
+
+  .head{
+    border-radius: 16px 16px 0 0 ;
+    --background-color: #073965;
+  }
+
+
+  .title-date {
+    display: flex;
+    align-items: center;
+  }
+  
+  .title-date strong {
+    margin-right: 10px; /* Adjust margin as needed */
+  }
+  
+  .post-date {
+    color: #ffffff; /* Or any other color */
+  }
+  
+  .content{
+    color: #88cafc;    
+    border-radius: 0 0 10px 10px;
+    margin-top: 3px;
+  }

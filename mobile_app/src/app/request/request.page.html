@@ -1,0 +1,46 @@
+<ion-content [fullscreen]="true">
+  <ion-button size="small" class="back-button" (click)="back()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M328 112L184 256l144 144"/></svg>
+    Back
+  </ion-button>
+  <div>
+    <div class="title">
+      <h1>Request Documents</h1>
+      <p>Please provide the required information.</p>
+    </div>
+    <div class="forms">
+      <ion-list>
+          <ion-item class="input">
+            <ion-input [value]="user.LRN" [readonly]="true">
+              <svg slot="start" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32"><g fill="#1B609D"><path d="m17.13 5.278l12.28 6.29a1.052 1.052 0 0 1 0 1.87l-.539.276l-.008-.017l-2.227 1.161l-.636.326v.006l-1.625.847v-.209a1.793 1.793 0 0 0-.97-1.6l-6.714-3.442a1.822 1.822 0 0 0-.818-.2l-.005.006a1.794 1.794 0 0 0-1.69 2.393c.155.444.476.81.896 1.022l5.706 2.922v.982L17.155 19.8a2.5 2.5 0 0 1-2.311 0L6 15.2l-.053-.027l-.872-.454v.006l-2.5-1.281a1.051 1.051 0 0 1 0-1.87l12.28-6.29a2.474 2.474 0 0 1 2.275-.006"/><path d="M23.37 15.828v6.28a1.97 1.97 0 0 1 .308.189a1.819 1.819 0 0 1 .662 1.91v.02l-.005.02a.522.522 0 0 1-.035.11c0 .006-.003.01-.005.016a.612.612 0 0 1-.055.135c0 .01-.01.02-.01.02c-.05.11-.12.22-.19.31c-.01.02-.02.03-.04.05l.47 2.2a1.94 1.94 0 0 1-1.9 2.35a1.94 1.94 0 0 1-1.9-2.35l.47-2.2a1.787 1.787 0 0 1-.4-1.073a1.79 1.79 0 0 1 .14-.757c0-.01.01-.02.02-.03c.01-.03.03-.07.05-.1l.008-.016l.009-.018a.604.604 0 0 1 .053-.086c.005-.005.007-.01.01-.015a1.886 1.886 0 0 1 .75-.675v-5.8l-6.25-3.2a.82.82 0 0 1-.404-.456a.777.777 0 0 1 .024-.614a.785.785 0 0 1 .664-.454a.807.807 0 0 1 .416.084l6.71 3.44a.79.79 0 0 1 .43.71"/><path d="m17.618 20.689l3.162-1.649v2.543a2.846 2.846 0 0 0-.577.647v.006a1.72 1.72 0 0 0-.121.2c-.03.05-.057.103-.081.157a2.81 2.81 0 0 0-.245 1.381a6.855 6.855 0 0 1-.614.026h-6.561A6.614 6.614 0 0 1 6 17.157v-.834l8.382 4.366a3.5 3.5 0 0 0 3.236 0m7.861-.909a6.84 6.84 0 0 1-1.095 1.796l-.009-.007v-4.404L26 16.318v.839c0 .9-.176 1.791-.521 2.623"/></g></svg>            
+            </ion-input>
+          </ion-item>
+          <ion-item class="input">
+            <ion-input [value]="user.firstname + ' ' + user.middlename.charAt(0)  + ' ' + user.lastname"  [readonly]="true">
+              <svg slot="start" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 1792 1792"><path fill="#1B609D" d="M896 0q182 0 348 71t286 191t191 286t71 348q0 181-70.5 347T1531 1529t-286 191.5t-349 71.5t-349-71t-285.5-191.5t-190.5-286T0 896t71-348t191-286T548 71T896 0m619 1351q149-205 149-455q0-156-61-298t-164-245t-245-164t-298-61t-298 61t-245 164t-164 245t-61 298q0 250 149 455q66-327 306-327q131 128 313 128t313-128q240 0 306 327m-235-647q0-159-112.5-271.5T896 320T624.5 432.5T512 704t112.5 271.5T896 1088t271.5-112.5T1280 704"/></svg>            </ion-input>
+          </ion-item>
+          <ion-item class="input">
+            <ion-input [value]="user.email"  [readonly]="true">
+              <svg slot="start" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="#1B609D" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12v1.45q0 1.475-1.012 2.513T18.5 17q-.875 0-1.65-.375t-1.3-1.075q-.725.725-1.638 1.088T12 17q-2.075 0-3.537-1.463T7 12q0-2.075 1.463-3.537T12 7q2.075 0 3.538 1.463T17 12v1.45q0 .65.425 1.1T18.5 15q.65 0 1.075-.45t.425-1.1V12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20h5v2zm0-7q1.25 0 2.125-.875T15 12q0-1.25-.875-2.125T12 9q-1.25 0-2.125.875T9 12q0 1.25.875 2.125T12 15"/></svg>
+            </ion-input>
+          </ion-item>
+          <ion-item class="input">
+            <ion-select [(ngModel)]="file_requested" label="Requested Document" label-placement="floating">
+              <ion-select-option value="Form 137">Form 137</ion-select-option>
+              <ion-select-option value="Form 138">Form 138</ion-select-option>
+              <ion-select-option value="Diploma">Diploma</ion-select-option>
+              <ion-select-option value="Cert. of Graduation">Cert. of Graduation</ion-select-option>
+              <ion-select-option value="Cert. of Good Moral Character">Cert. of Good Moral Character</ion-select-option>
+              <ion-select-option value="Cert. of Honors/Awardees">Cert. of Honors/Awardees</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item class="input" *ngIf="file_requested == 'Diploma' || file_requested == 'Cert. of Graduation'">
+           <ion-input [(ngModel)]="school_year" label="Year Graduated" label-placement="floating" type="number"></ion-input>
+          </ion-item>
+        </ion-list>
+    </div>
+    <div class="forms-container">
+    <ion-button class="submit" (click)="submit()">Submit</ion-button>
+  </div>
+  </div>
+</ion-content>

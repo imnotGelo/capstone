@@ -1,0 +1,39 @@
+<ion-content [fullscreen]="true">
+  <ion-button size="small" class="back-button" (click)="back()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M328 112L184 256l144 144"/></svg>
+    Back
+  </ion-button>
+  <div class="container">
+    <div>
+      <h1>School Schedule</h1>
+    </div>
+  </div>
+  <ion-card *ngIf="section" class="sched">
+    <ion-card-header>
+      <ion-card-subtitle class="title">Section: <strong class="section-head">{{ user.sectionData.section_name }}</strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="8">
+            <p class="title">Adviser: <strong class="section-head">{{ user.sectionData.teacher_name }}</strong></p>
+          </ion-col>
+          <ion-col size="4">
+            <p class="title">Room: <strong class="section-head">{{ user.sectionData.room_number }}</strong></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <p class="subject">Subject</p>
+
+      <ion-row class="subject-name" *ngFor="let subject of getSubjects()">
+        <ion-col class="title">{{ subject.name }}</ion-col>
+        <ion-col>{{ formatTime(subject.time_start) }}</ion-col>
+        <ion-col>{{ formatTime(subject.time_end) }}</ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+  
+  
+
+</ion-content>

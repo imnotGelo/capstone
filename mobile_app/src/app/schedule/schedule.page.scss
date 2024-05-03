@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+
+ion-content {
+    --ion-background-color: linear-gradient(to bottom, #073965, #074276, #0F4C81, #155790, #1B609D);
+  }
+
+  .back-button {
+    font-family: 'Hubballi', sans-serif;
+    position:absolute;
+    top: 20px; 
+    left: 1rem;
+    margin: 10px;
+    --border-radius: 10px;
+    --background: linear-gradient(to top, #073965, #074276, #0F4C81, #155790, #1B609D);
+}
+
+h1 {
+  margin-bottom: 30px; 
+  font-family: 'Hubballi', sans-serif;
+}
+
+.container {
+    padding: 20px;
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white; 
+ }
+
+ .sched{
+    border-radius: 15px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background: rgba( 255, 255, 224, 0.55 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 8px );
+-webkit-backdrop-filter: blur( 8px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+ }
+
+ .title{
+  font-family: 'Hubballi', sans-serif;
+  font-size: 15px;
+  color: #155790;
+  font-weight: bold;
+ }
+
+ .section-head{
+  font-family: 'Hubballi', sans-serif;
+  font-size: 17px;
+  color: #073965;
+  font-weight: bold;
+ }
+
+ .subject{
+  font-family: 'Hubballi', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #155790;
+ }
+   
+ .subject-name{
+  font-family: 'Hubballi', sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #073965;
+ }
+
+

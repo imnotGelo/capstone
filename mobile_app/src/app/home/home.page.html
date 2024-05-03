@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true">
+  <swiper-container 
+    (slidechange)="swiperSlideChanged($event)"
+    [loop]="true" 
+    [pagination]="{ clickable: true, progressbarFillClass: 'custom-progress-bar-fill' }"> <!-- Define the progressbarFillClass -->
+    <swiper-slide>
+      <img src="assets/jet.png" alt="">
+      <p class="slide-text">Reaching for Greatness</p>
+      <p class="slide-comment">Accept challenges, nurture curiosity, and kindle passions; greatness awaits those who persevere and are dedicated. Believe in yourself and strive for it.</p>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="assets/run.PNG" alt="">
+      <p class="slide-text">Studying is a never-ending task</p>
+      <p class="slide-comment">Accept learning's journey; it's a lifelong adventure that opens doors to limitless possibilities. Persist, and greatness awaits you.</p>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="assets/target.PNG" alt="">
+      <p class="slide-text">Targeting future goals</p>
+      <p class="slide-comment">Dream big, overcome obstacles, embrace learning, and pursue your passions. With perseverance and courage, you can achieve your future goals.</p>
+    </swiper-slide>
+    <div class="swiper-pagination"></div> 
+  </swiper-container>
+
+  <ion-button class="skip-but" expand="block" (click)="skip()">SKIP</ion-button>
+</ion-content>

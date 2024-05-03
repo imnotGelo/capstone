@@ -1,0 +1,129 @@
+ion-content {
+  --ion-background-color: linear-gradient(to bottom, #073965, #074276, #0F4C81, #155790, #1B609D);
+}
+
+.back-button {
+  font-family: 'Hubballi', sans-serif;
+  position:absolute;
+  top: 20px; 
+  left: 1rem;
+  margin: 10px;
+  --border-radius: 10px;
+  --background: linear-gradient(to top, #073965, #074276, #0F4C81, #155790, #1B609D);
+}
+
+ion-searchbar{
+  --background: rgba( 134, 182, 246, 0.2 );
+  --color: #fff;
+  --placeholder-color: #fff;
+  --icon-color: #fff;
+  --clear-button-color: #fff;
+
+  --border-radius: 10px;
+}
+ion-button{
+  --background: transparent;
+  height: 15px;
+  --background-activated: transparent;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5px;
+}
+
+
+.announce{
+  font-family: 'Hubballi', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 19%;
+  color: white;
+}
+
+.studies{
+  background: rgba( 134, 182, 246, 0.2 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 20px );
+  border-radius: 10px;
+  color: #88cafc;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  color: #88cafc;
+}
+
+.title-date {
+  display: flex;
+  align-items: center;
+}
+
+.title-date strong {
+  margin-right: 10px; 
+}
+
+.post-date {
+  color: #ffffff; 
+}
+
+.content{
+  color: #ffffff; 
+}
+
+.button-container {
+  display: flex;
+  align-items: center; 
+  margin-top: 2%;
+}
+
+.pdf-button, .toggle-button {
+  font-size: 11px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin-right: 1rem; 
+}
+
+.authors{
+  margin-top: 10px;
+  font-family: 'Hubballi', sans-serif;
+  font-size: 18px;
+}
+
+.abstract{
+  margin-top: 10px;
+  font-family: 'Hubballi', sans-serif;
+  font-size: 15px;
+}
+
+.pop{
+  color: white;
+
+}
+
+ion-popover {
+  --background: rgb(255, 255, 255); /* Set background color to blue */
+}
+
+.pop:hover {
+  --color: #88cafc;
+}
+
+.title{
+  font-family: 'Hubballi', sans-serif;
+  font-size: 17px;
+}
+
+
+
+

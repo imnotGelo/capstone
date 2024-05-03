@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+ion-router-outlet {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Optionally, you can add more specific styles for the transition effect */
+/* For example, you can slide the pages from right to left */
+.ion-page {
+  transform: translateX(100%);
+}
+
+.ion-page.ion-page-enter-active {
+  transform: translateX(0);
+}
+
+.ion-page.ion-page-leave-active {
+  transform: translateX(-100%);
+}
+
+
+.bg{
+    --ion-background-color:#1B609D;
+}
+
+.back-button {
+  font-family: 'Hubballi', sans-serif;
+  position:absolute;
+  top: 20px; 
+  left: 1rem;
+  margin: 10px;
+  --border-radius: 10px;
+  --background: linear-gradient(to top, #073965, #074276, #0F4C81, #155790, #1B609D);
+}
+
+  .regis{
+    font-family: 'Hubballi', sans-serif;
+    text-align: center;
+    margin-top: 15%;
+
+    .title{
+        font-size: 50px;
+        font-weight: 800;
+        color: #fddb54;
+        line-height: 3rem;
+        font-family: "Mulish", sans-serif;
+    }
+
+    .sub{
+        font-family: "Mulish", sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        color: #fddb54;
+    }
+}
+
+.input {
+    align-items: center;
+    width: 80%;
+    height: 60px;
+    line-height: 30px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    --background: #eaf7ff;
+    color:#595959;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Mulish", sans-serif;
+  }
+
+  .alert {
+    background-color: white;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: 150px;
+    top: 50%;
+   left: 50%;
+  transform: translate(-50%, -50%);
+  }
+
+  .enrollB {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh; /* Adjust as needed */
+  }
+  
+  .enroll-but {
+    font-family: "Urbanist", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    width: 100px; 
+    max-width: 200px;
+    color: #2660A4;
+    --border-radius: 10px;
+    --background: #fddb54;
+}
+  

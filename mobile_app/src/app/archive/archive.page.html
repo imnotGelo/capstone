@@ -1,0 +1,56 @@
+<ion-content [fullscreen]="true">
+  <ion-button size="small" class="back-button" (click)="back()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M328 112L184 256l144 144"/></svg>
+    Back
+  </ion-button>
+  <h1 class="announce">Research Library</h1>
+  <ion-searchbar show-cancel-button="focus" placeholder="Search for related studies" [(ngModel)]="searchQuery"></ion-searchbar>
+  <div class="icon-container">
+    <ion-button id="popover-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16"><path fill="#1B609D" d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5"/></svg>
+    </ion-button>
+    <ion-popover trigger="popover-button" [dismissOnSelect]="true">
+      <ng-template>
+        <ion-content>
+          <ion-list>
+            <ion-item class="pop" [button]="true" [detail]="false" (click)="sortByMostRecent()">Most recent to Oldest</ion-item>
+            <ion-item class="pop" [button]="true" [detail]="false" (click)="sortByOldest()">Old to Newest</ion-item>
+            <ion-item class="pop" [button]="true" id="nested-trigger">Category</ion-item>
+            <ion-popover trigger="nested-trigger" [dismissOnSelect]="true" side="end">
+              <ng-template>
+                <ion-content>
+                  <ion-list>
+                    <ion-item class="pop" [button]="true" [detail]="false" (click)="selectCategory('Qualitative')">Qualitative</ion-item>
+                    <ion-item class="pop" [button]="true" [detail]="false" (click)="selectCategory('Quantitative')">Quantitative</ion-item>
+                  </ion-list>
+                </ion-content>
+              </ng-template>
+            </ion-popover>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>   
+  </div>     
+  <ion-card class="studies" *ngFor="let item of filteredResearch">
+    <ion-card-header class="head">
+      <div class="header-content">
+        <div><strong class="title">{{ truncate(item.title) }}</strong></div>
+        <div class="post-date">{{ item.category }}</div>
+      </div>          
+    </ion-card-header>
+    <ion-card-content class="content">
+      <div *ngIf="item.minimized" class="authors">
+        Authors: <strong>{{ truncate(item.authors) }}</strong> {{ item.year_publish }}
+       <div class="abstract">Abstract: <br>{{ item.abstract }}</div> 
+      </div>
+      <div class="button-container">
+        <button ion-button *ngIf="item.file_path" (click)="viewPdf(item.file_path)" class="pdf-button">
+          View File
+        </button>
+        <button ion-button (click)="toggleMinimized(item)" class="toggle-button">
+          {{ item.minimized ?'Show Less' : 'See Abstract'  }}
+        </button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

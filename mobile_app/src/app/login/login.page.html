@@ -1,0 +1,20 @@
+<ion-content>
+  <div class="background">
+    <div class="title">
+      <h1 class="p1">oras</h1>
+      <p class="p2">Online Registration & Academic System</p>
+    </div>
+    <div class="group">
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 256 256"><path fill="white" d="M234.38 210a123.36 123.36 0 0 0-60.78-53.23a76 76 0 1 0-91.2 0A123.36 123.36 0 0 0 21.62 210a12 12 0 1 0 20.77 12c18.12-31.32 50.12-50 85.61-50s67.49 18.69 85.61 50a12 12 0 0 0 20.77-12M76 96a52 52 0 1 1 52 52a52.06 52.06 0 0 1-52-52"/></svg>
+      <input class="input" type="number" [(ngModel)]="LRN" placeholder="Learner's Reference Number (LRN)">
+    </div>
+    <div class="group">
+      <input class="input" type="{{ passwordVisible ? 'text' : 'password' }}" [(ngModel)]="password" placeholder="Password">
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" (click)="togglePasswordVisibility()">
+        <path fill="none" stroke="white" stroke-linecap="round" stroke-width="1.5" d="M12 10v4m-1.732-3l3.464 2m0-2l-3.465 2m-3.535-3v4M5 11l3.464 2m0-2L5 13m12.268-3v4m-1.732-3L19 13m0-2l-3.465 2M22 12c0 3.771 0 5.657-1.172 6.828C19.657 20 17.771 20 14 20h-4c-3.771 0-5.657 0-6.828-1.172C2 17.657 2 15.771 2 12c0-3.771 0-5.657 1.172-6.828C4.343 4 6.229 4 10 4h4c3.771 0 5.657 0 6.828 1.172c.654.653.943 1.528 1.07 2.828"/>
+      </svg>
+    </div>
+    <div>
+      <ion-button class="login-button" (click)="login()">LOGIN</ion-button>
+      <ion-button class="p3" fill="clear" (click)="forgotpw()">Forgot Password</ion-button>
+      <ion-button class="reg-button" (click)="signUp()">Invest in yourself, Enroll today!</ion-button>

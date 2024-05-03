@@ -1,0 +1,21 @@
+<ion-content class="ion-padding">
+  <div class="otp-container">
+    <h1 class="one">One Time</h1> 
+    <h1 class="pin">PIN</h1>
+    <p class="p">Your verification code was forwarded to your email address. Please check your email!</p>
+    <div class="otp-inputs">
+      <input type="text" maxlength="1" (input)="onInputChange(1, $event)" />
+      <input type="text" maxlength="1" (input)="onInputChange(2, $event)" />
+      <input type="text" maxlength="1" (input)="onInputChange(3, $event)" />
+      <input type="text" maxlength="1" (input)="onInputChange(4, $event)" />
+      <input type="text" maxlength="1" (input)="onInputChange(5, $event)" />
+      <input type="text" maxlength="1" (input)="onInputChange(6, $event)" />
+    </div>
+
+    <button (click)="verifyOTP()" [disabled]="timerExpired">Verify</button><br>
+    <div *ngIf="timerVisible">
+      <p>Expires at: {{ minutes }}:{{ seconds }}</p>
+    </div>
+    <button *ngIf="timerExpired" >Request New OTP</button>
+  </div>
+</ion-content>

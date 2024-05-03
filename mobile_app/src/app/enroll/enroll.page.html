@@ -1,0 +1,194 @@
+<ion-content [fullscreen]="true">
+  <div class="regis">
+    <ion-button size="small" shape="round" class="back-button" (click)="enroll()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M328 112L184 256l144 144"/></svg>
+      Back
+    </ion-button>
+    <h1 class="title">oras</h1>
+    <p class="sub"> Online Registration & Academic System</p>
+    <h1 class="form"> Enrollment Form</h1>
+  </div>
+  <div class="btn-container">
+    <label class="switch btn-color-mode-switch">
+      <input [(ngModel)]="isOld" id="color_mode" name="color_mode" type="checkbox">
+      <label class="btn-color-mode-switch-inner" data-off="New" data-on="Old" for="color_mode"></label>
+    </label>
+  </div><br>
+  <div class="new" *ngIf="!isOld" >
+    <div>
+      <ion-list>
+        <div>
+          <ion-item class="input">
+            <svg width="25" height="25" fill="#1B609D" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" slot="start">
+              <path d="M12.473 2.496a1.2 1.2 0 0 0-.946 0l-8.4 3.6a1.2 1.2 0 0 0 0 2.208L6.3 9.661c.118-.133.264-.238.427-.308l4.8-2.057a1.2 1.2 0 1 1 .946 2.206L9.2 10.906l2.328.997a1.2 1.2 0 0 0 .945 0l8.4-3.6a1.2 1.2 0 0 0 0-2.206l-8.4-3.6v-.001Zm-8.501 8.78L6 12.144v4.922a10.76 10.76 0 0 0-1.26-.208 1.2 1.2 0 0 1-1.068-1.068 13.338 13.338 0 0 1 .3-4.515v.001Zm7.188 8.612a10.831 10.831 0 0 0-2.76-1.966v-4.748l2.182.936a3.6 3.6 0 0 0 2.836 0l6.61-2.834c.358 1.477.46 3.004.3 4.515a1.2 1.2 0 0 1-1.068 1.068 10.76 10.76 0 0 0-6.42 3.029 1.2 1.2 0 0 1-1.68 0ZM7.2 21.6a1.2 1.2 0 0 0 1.2-1.2v-2.478a10.72 10.72 0 0 0-2.4-.854V20.4a1.2 1.2 0 0 0 1.2 1.2Z"></path></svg>
+              <ion-input [value]="user.LRN" [disabled]="true"></ion-input>
+          </ion-item>       
+        </div><br>
+        <div>
+          <ion-item class="input">
+            <svg slot="start" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" stroke="#1B609D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18m0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21m3-11a3 3 0 1 1-6 0a3 3 0 0 1 6 0"/></svg>
+            <ion-input [value]="user.firstname + ' ' + user.middlename.charAt(0)  + ' ' + user.lastname"  [disabled]="true"></ion-input>
+          </ion-item>       
+        </div><br>
+        <div>
+          <ion-item class="input">
+            <svg slot="start" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="#1B609D" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12v1.45q0 1.475-1.012 2.513T18.5 17q-.875 0-1.65-.375t-1.3-1.075q-.725.725-1.638 1.088T12 17q-2.075 0-3.537-1.463T7 12q0-2.075 1.463-3.537T12 7q2.075 0 3.538 1.463T17 12v1.45q0 .65.425 1.1T18.5 15q.65 0 1.075-.45t.425-1.1V12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20h5v2zm0-7q1.25 0 2.125-.875T15 12q0-1.25-.875-2.125T12 9q-1.25 0-2.125.875T9 12q0 1.25.875 2.125T12 15"/></svg>
+            <ion-input [value]="user.email" [disabled]="true"></ion-input>
+          </ion-item>       
+        </div><br>
+        <div>
+          <ion-item class="input">
+            <svg slot="start" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 20 20"><path fill="#1B609D" d="M18.672 11H17v6c0 .445-.194 1-1 1h-4v-6H8v6H4c-.806 0-1-.555-1-1v-6H1.328c-.598 0-.47-.324-.06-.748L9.292 2.22c.195-.202.451-.302.708-.312c.257.01.513.109.708.312l8.023 8.031c.411.425.539.749-.059.749"/></svg>
+            <ion-input [value]="user.address" [disabled]="true"></ion-input>
+          </ion-item>
+        </div><br>
+        <div>
+          <ion-item class="input">
+            <svg slot="start" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="#1B609D" d="M9.29 21a6.23 6.23 0 0 1-4.43-1.88a6 6 0 0 1-.22-8.49L12 3.2A4.11 4.11 0 0 1 15 2a4.48 4.48 0 0 1 3.19 1.35a4.36 4.36 0 0 1 .15 6.13l-7.4 7.43a2.54 2.54 0 0 1-1.81.75a2.72 2.72 0 0 1-1.95-.82a2.68 2.68 0 0 1-.08-3.77l6.83-6.86a1 1 0 0 1 1.37 1.41l-6.83 6.86a.68.68 0 0 0 .08.95a.78.78 0 0 0 .53.23a.56.56 0 0 0 .4-.16l7.39-7.43a2.36 2.36 0 0 0-.15-3.31a2.38 2.38 0 0 0-3.27-.15L6.06 12a4 4 0 0 0 .22 5.67a4.22 4.22 0 0 0 3 1.29a3.67 3.67 0 0 0 2.61-1.06l7.39-7.43a1 1 0 1 1 1.42 1.41l-7.39 7.43A5.65 5.65 0 0 1 9.29 21"/></svg>
+            <svg id="present-alert" slot="end" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill="#1B609D" fill-rule="evenodd" d="M8 13.5a5.5 5.5 0 1 0 0-11a5.5 5.5 0 0 0 0 11M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14m1-9.5a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-.25 3a.75.75 0 0 0-1.5 0V11a.75.75 0 0 0 1.5 0z" clip-rule="evenodd"/></svg>
+            <ion-popover trigger="present-alert" triggerAction="click" side="left" alignment="start">
+              <ng-template>
+                <ion-content class="ion-padding">Please upload a file with one of the following extensions: .jpeg, .jpg, .png.</ion-content>
+              </ng-template>
+            </ion-popover>
+            <ion-input (change)="onFileChange($event, 'good_moral')" labelPlacement="floating" label="Good Moral" type="file" accept=".jpeg,.jpg,.png"></ion-input>
+          </ion-item>       
+        </div><br>
+        <div>
+          <ion-item class="input">
+            <svg slot="start" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 36 36"><path fill="#1B609D" d="M27.46 17.23a6.36 6.36 0 0 0-4.4 11l-1.94 2.37l.9 3.61l3.66-4.46a6.26 6.26 0 0 0 3.55 0l3.66 4.46l.9-3.61l-1.94-2.37a6.36 6.36 0 0 0-4.4-11Zm0 10.68a4.31 4.31 0 1 1 4.37-4.31a4.35 4.35 0 0 1-4.37 4.31" class="clr-i-solid--badged clr-i-solid-path-1--badged"/><path fill="#1B609D" d="M30 13.5A7.5 7.5 0 0 1 22.5 6H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h15l.57-.7l.93-1.14A8.34 8.34 0 0 1 34 18.37v-6a7.46 7.46 0 0 1-4 1.13M17 24.6H7V23h10Zm1-7H7V16h11Zm6-4H7V12h17Z" class="clr-i-solid--badged clr-i-solid-path-2--badged"/><circle cx="30" cy="6" r="5" fill="#1B609D" class="clr-i-solid--badged clr-i-solid-path-3--badged clr-i-badge"/><path fill="none" d="M0 0h36v36H0z"/></svg>
+            <svg id="present-alert1" slot="end" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill="#1B609D" fill-rule="evenodd" d="M8 13.5a5.5 5.5 0 1 0 0-11a5.5 5.5 0 0 0 0 11M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14m1-9.5a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-.25 3a.75.75 0 0 0-1.5 0V11a.75.75 0 0 0 1.5 0z" clip-rule="evenodd"/></svg>
+            <ion-popover trigger="present-alert1" triggerAction="click" side="left" alignment="start">
+              <ng-template>
+                <ion-content class="ion-padding">Please upload a file with one of the following extensions: .jpeg, .jpg, .png.</ion-content>
+              </ng-template>
+            </ion-popover> 
+            <ion-input (change)="onFileChange($event, 'birth_cert')" labelPlacement="floating" label="Birth Certificate" type="file" accept=".jpeg,.jpg,.png"></ion-input>
+          </ion-item>       
+        </div><br>
+        <div>
+          <ion-item class="input">
+            <svg width="25" height="25" fill="#1B609D" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" slot="start">
+              <path d="m18 12.75 1.434 2.777 3.066.446L20.25 18l.578 3L18 19.312 15.172 21l.578-3-2.25-2.027 3.15-.446L18 12.75Z"></path><path d="M9 12H4.5v1.5H9V12Z"></path><path d="M12 9H4.5v1.5H12V9Z"></path><path d="M12 6H4.5v1.5H12V6Z"></path><path d="M12 19.5H3v-15h18V12h1.5V4.5A1.5 1.5 0 0 0 21 3H3a1.5 1.5 0 0 0-1.5 1.5v15A1.5 1.5 0 0 0 3 21h9v-1.5Z"></path></svg>
+              <svg id="present-alert2" slot="end" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill="#1B609D" fill-rule="evenodd" d="M8 13.5a5.5 5.5 0 1 0 0-11a5.5 5.5 0 0 0 0 11M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14m1-9.5a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-.25 3a.75.75 0 0 0-1.5 0V11a.75.75 0 0 0 1.5 0z" clip-rule="evenodd"/></svg>
+              <ion-popover trigger="present-alert2" triggerAction="click" side="left" alignment="start">
+                <ng-template>
+                  <ion-content class="ion-padding">Please upload a file with one of the following extensions: .jpeg, .jpg, .png.</ion-content>
+                </ng-template>
+              </ion-popover>
+              <ion-input (change)="onFileChange($event, 'cert_trans')" labelPlacement="floating" label="Certificate of Transferee" type="file" accept=".jpeg,.jpg,.png"></ion-input>
+          </ion-item>       
+        </div><br>
+        <div>
+          <ion-item class="input">
+            <svg width="25" height="25" fill="#1B609D" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" slot="start">
+              <path fill-rule="evenodd" d="M7.2 2.4a2.4 2.4 0 0 0-2.4 2.4v14.4a2.4 2.4 0 0 0 2.4 2.4h9.6a2.4 2.4 0 0 0 2.4-2.4V8.897a2.4 2.4 0 0 0-.703-1.697L14.4 3.103a2.4 2.4 0 0 0-1.697-.703H7.2Zm2.4 12a1.2 1.2 0 0 0-2.4 0V18a1.2 1.2 0 0 0 2.4 0v-3.6Zm2.4-3.6a1.2 1.2 0 0 1 1.2 1.2v6a1.2 1.2 0 1 1-2.4 0v-6a1.2 1.2 0 0 1 1.2-1.2Zm4.8-1.2a1.2 1.2 0 1 0-2.4 0V18a1.2 1.2 0 1 0 2.4 0V9.6Z" clip-rule="evenodd"></path></svg>
+              <svg id="present-alert3" slot="end" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill="#1B609D" fill-rule="evenodd" d="M8 13.5a5.5 5.5 0 1 0 0-11a5.5 5.5 0 0 0 0 11M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14m1-9.5a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-.25 3a.75.75 0 0 0-1.5 0V11a.75.75 0 0 0 1.5 0z" clip-rule="evenodd"/></svg>
+              <ion-popover trigger="present-alert3" triggerAction="click" side="left" alignment="start">
+                <ng-template>
+                  <ion-content class="ion-padding">Please upload a file with one of the following extensions: .jpeg, .jpg, .png.</ion-content>
+                </ng-template>
+              </ion-popover>
+              <ion-input (change)="onFileChange($event, 'report_card')" labelPlacement="floating" label="Report Card" type="file" accept=".jpeg,.jpg,.png"></ion-input>
+          </ion-item>       
+        </div><br>
+        <div>
+          <ion-item class="input">
+            <svg width="25" height="25" fill="#1B609D" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" slot="start">
+              <path fill-rule="evenodd" d="M7.2 2.4a2.4 2.4 0 0 0-2.4 2.4v14.4a2.4 2.4 0 0 0 2.4 2.4h9.6a2.4 2.4 0 0 0 2.4-2.4V8.897a2.4 2.4 0 0 0-.703-1.697L14.4 3.103a2.4 2.4 0 0 0-1.697-.703H7.2Zm2.4 12a1.2 1.2 0 0 0-2.4 0V18a1.2 1.2 0 0 0 2.4 0v-3.6Zm2.4-3.6a1.2 1.2 0 0 1 1.2 1.2v6a1.2 1.2 0 1 1-2.4 0v-6a1.2 1.2 0 0 1 1.2-1.2Zm4.8-1.2a1.2 1.2 0 1 0-2.4 0V18a1.2 1.2 0 1 0 2.4 0V9.6Z" clip-rule="evenodd"></path></svg>
+              <ion-select [(ngModel)]="grade_level" justify="space-between" label="Next Grade Level" interface="popover">
+                <ion-select-option value="7">7</ion-select-option>
+                <ion-select-option value="8">8</ion-select-option>
+                <ion-select-option value="9">9</ion-select-option>
+                <ion-select-option value="10">10</ion-select-option>
+                <ion-select-option value="11">11</ion-select-option>
+                <ion-select-option value="12">12</ion-select-option>
+              </ion-select>
+          </ion-item>       
+        </div><br>
+        <div>
+          <ion-item class="input" *ngIf="grade_level === '11' || grade_level === '12'">
+            <svg width="25" height="25" fill="#1B609D" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" slot="start">
+              <path fill-rule="evenodd" d="M7.2 2.4a2.4 2.4 0 0 0-2.4 2.4v14.4a2.4 2.4 0 0 0 2.4 2.4h9.6a2.4 2.4 0 0 0 2.4-2.4V8.897a2.4 2.4 0 0 0-.703-1.697L14.4 3.103a2.4 2.4 0 0 0-1.697-.703H7.2Zm2.4 12a1.2 1.2 0 0 0-2.4 0V18a1.2 1.2 0 0 0 2.4 0v-3.6Zm2.4-3.6a1.2 1.2 0 0 1 1.2 1.2v6a1.2 1.2 0 1 1-2.4 0v-6a1.2 1.2 0 0 1 1.2-1.2Zm4.8-1.2a1.2 1.2 0 1 0-2.4 0V18a1.2 1.2 0 1 0 2.4 0V9.6Z" clip-rule="evenodd"></path></svg>
+              <ion-select [(ngModel)]="strand" justify="space-between" label="Strand" interface="popover">
+                <ion-select-option value="Gas">GAS</ion-select-option>
+                <ion-select-option value="Humss">HUMSS</ion-select-option>
+                <ion-select-option value="Stem">STEM</ion-select-option>
+              </ion-select>
+          </ion-item>       
+        </div><br>
+
+      <ion-button (click)="NewEnroll()" class="enroll-but">ENROLL</ion-button>
+      </ion-list>
+    </div>
+  </div>
+
+  <div class="new" *ngIf="isOld" >
+      <ion-list>
+        <div>
+          <ion-item class="input">
+            <svg width="25" height="25" fill="#1B609D" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" slot="start">
+              <path d="M12.473 2.496a1.2 1.2 0 0 0-.946 0l-8.4 3.6a1.2 1.2 0 0 0 0 2.208L6.3 9.661c.118-.133.264-.238.427-.308l4.8-2.057a1.2 1.2 0 1 1 .946 2.206L9.2 10.906l2.328.997a1.2 1.2 0 0 0 .945 0l8.4-3.6a1.2 1.2 0 0 0 0-2.206l-8.4-3.6v-.001Zm-8.501 8.78L6 12.144v4.922a10.76 10.76 0 0 0-1.26-.208 1.2 1.2 0 0 1-1.068-1.068 13.338 13.338 0 0 1 .3-4.515v.001Zm7.188 8.612a10.831 10.831 0 0 0-2.76-1.966v-4.748l2.182.936a3.6 3.6 0 0 0 2.836 0l6.61-2.834c.358 1.477.46 3.004.3 4.515a1.2 1.2 0 0 1-1.068 1.068 10.76 10.76 0 0 0-6.42 3.029 1.2 1.2 0 0 1-1.68 0ZM7.2 21.6a1.2 1.2 0 0 0 1.2-1.2v-2.478a10.72 10.72 0 0 0-2.4-.854V20.4a1.2 1.2 0 0 0 1.2 1.2Z"></path></svg>
+              <ion-input [value]="user.LRN" [disabled]="true"></ion-input>
+          </ion-item>       
+        </div><br>
+        <div>
+          <ion-item class="input">
+            <svg slot="start" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" stroke="#1B609D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18m0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21m3-11a3 3 0 1 1-6 0a3 3 0 0 1 6 0"/></svg>
+            <ion-input [value]="user.firstname + ' ' + user.middlename.charAt(0)  + ' ' + user.lastname"  [disabled]="true"></ion-input>
+          </ion-item>       
+        </div><br>
+        <div>
+          <ion-item class="input">
+            <svg slot="start" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="#1B609D" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12v1.45q0 1.475-1.012 2.513T18.5 17q-.875 0-1.65-.375t-1.3-1.075q-.725.725-1.638 1.088T12 17q-2.075 0-3.537-1.463T7 12q0-2.075 1.463-3.537T12 7q2.075 0 3.538 1.463T17 12v1.45q0 .65.425 1.1T18.5 15q.65 0 1.075-.45t.425-1.1V12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20h5v2zm0-7q1.25 0 2.125-.875T15 12q0-1.25-.875-2.125T12 9q-1.25 0-2.125.875T9 12q0 1.25.875 2.125T12 15"/></svg>
+            <ion-input [value]="user.email" [disabled]="true"></ion-input>
+          </ion-item>       
+        </div><br>
+        <div>
+          <ion-item class="input">
+            <svg slot="start" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 20 20"><path fill="#1B609D" d="M18.672 11H17v6c0 .445-.194 1-1 1h-4v-6H8v6H4c-.806 0-1-.555-1-1v-6H1.328c-.598 0-.47-.324-.06-.748L9.292 2.22c.195-.202.451-.302.708-.312c.257.01.513.109.708.312l8.023 8.031c.411.425.539.749-.059.749"/></svg>
+            <ion-input [value]="user.address" [disabled]="true"></ion-input>
+          </ion-item>
+        </div><br>
+        <div>
+          <ion-item class="input">
+            <svg width="25" height="25" fill="#1B609D" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" slot="start">
+              <path fill-rule="evenodd" d="M7.2 2.4a2.4 2.4 0 0 0-2.4 2.4v14.4a2.4 2.4 0 0 0 2.4 2.4h9.6a2.4 2.4 0 0 0 2.4-2.4V8.897a2.4 2.4 0 0 0-.703-1.697L14.4 3.103a2.4 2.4 0 0 0-1.697-.703H7.2Zm2.4 12a1.2 1.2 0 0 0-2.4 0V18a1.2 1.2 0 0 0 2.4 0v-3.6Zm2.4-3.6a1.2 1.2 0 0 1 1.2 1.2v6a1.2 1.2 0 1 1-2.4 0v-6a1.2 1.2 0 0 1 1.2-1.2Zm4.8-1.2a1.2 1.2 0 1 0-2.4 0V18a1.2 1.2 0 1 0 2.4 0V9.6Z" clip-rule="evenodd"></path></svg>
+              <svg id="present-alert" slot="end" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill="#1B609D" fill-rule="evenodd" d="M8 13.5a5.5 5.5 0 1 0 0-11a5.5 5.5 0 0 0 0 11M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14m1-9.5a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-.25 3a.75.75 0 0 0-1.5 0V11a.75.75 0 0 0 1.5 0z" clip-rule="evenodd"/></svg>
+              <ion-popover trigger="present-alert" triggerAction="click" side="left" alignment="start">
+                <ng-template>
+                  <ion-content class="ion-padding">Please upload a file with one of the following extensions: .jpeg, .jpg, .png.</ion-content>
+                </ng-template>
+              </ion-popover>
+              <ion-input (change)="onFileChange($event, 'report_card')" labelPlacement="floating" label="Report Card" type="file" accept=".jpeg,.jpg,.png"></ion-input>
+            </ion-item>       
+        </div><br>
+        <div>
+          <ion-item class="input">
+            <svg width="25" height="25" fill="#1B609D" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" slot="start">
+              <path fill-rule="evenodd" d="M7.2 2.4a2.4 2.4 0 0 0-2.4 2.4v14.4a2.4 2.4 0 0 0 2.4 2.4h9.6a2.4 2.4 0 0 0 2.4-2.4V8.897a2.4 2.4 0 0 0-.703-1.697L14.4 3.103a2.4 2.4 0 0 0-1.697-.703H7.2Zm2.4 12a1.2 1.2 0 0 0-2.4 0V18a1.2 1.2 0 0 0 2.4 0v-3.6Zm2.4-3.6a1.2 1.2 0 0 1 1.2 1.2v6a1.2 1.2 0 1 1-2.4 0v-6a1.2 1.2 0 0 1 1.2-1.2Zm4.8-1.2a1.2 1.2 0 1 0-2.4 0V18a1.2 1.2 0 1 0 2.4 0V9.6Z" clip-rule="evenodd"></path></svg>
+              <ion-select [(ngModel)]="grade_level" justify="space-between" label="Next Grade Level" interface="popover">
+                <ion-select-option value="7">7</ion-select-option>
+                <ion-select-option value="8">8</ion-select-option>
+                <ion-select-option value="9">9</ion-select-option>
+                <ion-select-option value="10">10</ion-select-option>
+                <ion-select-option value="11">11</ion-select-option>
+                <ion-select-option value="12">12</ion-select-option>
+              </ion-select>
+          </ion-item>       
+        </div><br>
+        <div>
+          <ion-item class="input" *ngIf="grade_level == '11' || grade_level == '12'">
+            <svg width="25" height="25" fill="#1B609D" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" slot="start">
+              <path fill-rule="evenodd" d="M7.2 2.4a2.4 2.4 0 0 0-2.4 2.4v14.4a2.4 2.4 0 0 0 2.4 2.4h9.6a2.4 2.4 0 0 0 2.4-2.4V8.897a2.4 2.4 0 0 0-.703-1.697L14.4 3.103a2.4 2.4 0 0 0-1.697-.703H7.2Zm2.4 12a1.2 1.2 0 0 0-2.4 0V18a1.2 1.2 0 0 0 2.4 0v-3.6Zm2.4-3.6a1.2 1.2 0 0 1 1.2 1.2v6a1.2 1.2 0 1 1-2.4 0v-6a1.2 1.2 0 0 1 1.2-1.2Zm4.8-1.2a1.2 1.2 0 1 0-2.4 0V18a1.2 1.2 0 1 0 2.4 0V9.6Z" clip-rule="evenodd"></path></svg>
+              <ion-select [(ngModel)]="strand" justify="space-between" label="Strand" interface="popover">
+                <ion-select-option value="Gas">GAS</ion-select-option>
+                <ion-select-option value="Humss">HUMSS</ion-select-option>
+                <ion-select-option value="Stem">STEM</ion-select-option>
+              </ion-select>
+          </ion-item>       
+        </div><br>
+      <ion-button (click)="OldEnroll()" class="enroll-but">ENROLL</ion-button>
+      </ion-list>
+  </div>
+</ion-content>
