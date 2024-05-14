@@ -19,7 +19,7 @@
     <ion-card-content class="content">
       <div *ngIf="!item.minimized">{{ item.description }}</div>
       <button ion-button (click)="toggleMinimized(item)" style="font-size: 11px; font-style: italic; font-weight: 500; color: #000000; background-color: transparent; border: none; outline: none;">
-        {{ item.minimized ? 'Expand' : 'Show Less' }}
+        {{ item.minimized ? 'Show more' : 'Show Less' }}
       </button>      
     </ion-card-content>
   </ion-card>

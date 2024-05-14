@@ -48,7 +48,7 @@ export class LandingPage implements OnInit {
   }
 
   logout(){
-    this.router.navigate(['/home'])
+    this.router.navigate(['/login'])
   }
 
   onFileSelected(event: any) {
@@ -155,6 +155,10 @@ export class LandingPage implements OnInit {
   }
   schedule() {
     this.navCtrl.navigateForward('/schedule', { state: { user: this.user } });
+  }
+
+  otp() {
+    this.navCtrl.navigateForward('/otp', { state: { user: this.user } });
   }
 
 

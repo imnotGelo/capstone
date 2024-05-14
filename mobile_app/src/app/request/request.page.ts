@@ -85,7 +85,7 @@ export class RequestPage implements OnInit {
   
   async success() {
     const alert = await this.alertController.create({
-      header: 'Documents Submitted',
+      header: 'Request Submitted',
       message: 'Thank you for submitting your request. Please allow 3-5 business days for a response.',
       buttons: ['OK']
     });

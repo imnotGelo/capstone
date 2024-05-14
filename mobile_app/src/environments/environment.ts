@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://192.168.1.107/CAPSTONE/backend'
+  apiUrl: 'https://orasedu.free.nf/CAPSTONE/backend'
 };

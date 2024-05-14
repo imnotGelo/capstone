@@ -29,13 +29,19 @@ if (mysqli_num_rows($check_query) > 0) {
 $current_year = date('Y');
 $previous_year = $current_year - 1;
 $backup_table_name = "student_backup_" . $previous_year;
-$check_backup_query = mysqli_query($con, "SELECT * FROM $backup_table_name WHERE LRN = '$LRN'");
-if (mysqli_num_rows($check_backup_query) > 0) {
-    http_response_code(406);
-    $message['status'] = "Error";
-    $message['error'] = "LRN already exists in the backup table for the current year.";
-    echo json_encode($message);
-    exit;
+
+// Check if backup table exists
+$check_backup_table_query = mysqli_query($con, "SHOW TABLES LIKE '$backup_table_name'");
+if(mysqli_num_rows($check_backup_table_query) > 0) {
+    // Backup table exists, perform check
+    $check_backup_query = mysqli_query($con, "SELECT * FROM $backup_table_name WHERE LRN = '$LRN'");
+    if (mysqli_num_rows($check_backup_query) > 0) {
+        http_response_code(406);
+        $message['status'] = "Error";
+        $message['error'] = "LRN already exists in the backup table for the current year.";
+        echo json_encode($message);
+        exit;
+    }
 }
 
 $stmt = $con->prepare("INSERT INTO `studentpending` (`LRN`, `firstname`, `middlename`, `lastname`, `email`, `address`, `grade_level`, `strand`, `report_card`, `good_moral`, `cert_trans`, `birth_cert`) 

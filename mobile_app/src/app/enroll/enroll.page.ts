@@ -124,8 +124,13 @@ export class EnrollPage implements OnInit {
         }
       },
       (error: any) => {
-        if (error.status === 406) { // Check for status code 406
+        if (error.status === 404) {
+          this.backupTableNotExist();
+        } else if (error.status === 406) {
           this.LRNisNotExist();
+        } else if (error.status === 400) {
+          const expected_grade_level = error.error.expected_grade_level;
+          this.invalidGradeLevel(expected_grade_level);
         } else {
           this.DuplicateAlert();
         }
@@ -180,10 +185,19 @@ export class EnrollPage implements OnInit {
     this.addOldStudent(formData);
   }
 
+  async backupTableNotExist() {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: 'Backup table does not exist.',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
   async LRNisExist() {
     const alert = await this.alertController.create({
       header: 'Validation',
-      message: 'According to our records, your LRN is already in the system. When enrolling, please select Old.',
+      message: "Your LRN is already associated with our system. To continue, simply select 'Old' during enrollment.",
       buttons: ['OK'],
       cssClass: 'validation-message' 
     });
@@ -193,9 +207,19 @@ export class EnrollPage implements OnInit {
   async LRNisNotExist() {
     const alert = await this.alertController.create({
       header: 'Validation',
-      message: 'You do not have any records in our system. When enrolling, please choose Old.',
+      message: "You do not have any records in our system. When enrolling, please choose option 'New'.",
       buttons: ['OK']
     });
     await alert.present();
   }
+
+  async invalidGradeLevel(expected_grade_level: number) {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: `Invalid grade level. Expected grade level is ${expected_grade_level}.`,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+  
 }

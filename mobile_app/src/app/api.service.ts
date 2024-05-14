@@ -23,7 +23,6 @@ export class ApiService {
     this.headers = new HttpHeaders();
     this.headers.append("Accept", 'application/json');
     this.headers.append('Content-Type', 'application/json');
-    this.headers.append('Access-Control-Allow-Origin','*');
   }
 
   setNewNotificationState(hasNew: boolean) {
@@ -33,10 +32,22 @@ export class ApiService {
   signUp(NewData: any) {
     return this.http.post(`${this.baseUrl}/create.php`, NewData);
   }
+  
+  forgot(password: any) {
+    return this.http.post(`${this.baseUrl}/forgot-pw.php`, password);
+  }
+
+  resetPW(password:any){
+    return this.http.post(`${this.baseUrl}/reset-pw.php`, password);
+  }
 
   verifyOtp(requestBody : any) {
     return this.http.post(`${this.baseUrl}/verifyOtp.php`, requestBody);
   } 
+
+  resendOtp(data: any) {
+    return this.http.post(`${this.baseUrl}/resendOtp.php`, data);
+  }
 
   login(LRN:number, password: string){
     return this.http.post(`${this.baseUrl}/login.php`, { LRN, password });
@@ -73,10 +84,6 @@ export class ApiService {
   
   checkApplicationStatus(LRN:any){
     return this.http.post(`${this.baseUrl}/notif.php`, LRN); 
-  }
-
-  checkLRNInBackupTable(LRN: string) {
-    return this.http.post(`${this.baseUrl}/checkLRN.php`, { LRN });
   }
 
 }

@@ -10,7 +10,7 @@
   </div>
   <ion-card *ngIf="section" class="sched">
     <ion-card-header>
-      <ion-card-subtitle class="title">Section: <strong class="section-head">{{ user.sectionData.section_name }}</strong></ion-card-subtitle>
+      <ion-card-subtitle class="title">Section: <strong class="section-head">{{ user.sectionData.section_id }}</strong></ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <ion-grid>
@@ -19,7 +19,7 @@
             <p class="title">Adviser: <strong class="section-head">{{ user.sectionData.teacher_name }}</strong></p>
           </ion-col>
           <ion-col size="4">
-            <p class="title">Room: <strong class="section-head">{{ user.sectionData.room_number }}</strong></p>
+            <p class="title">Room: <strong class="section-head">{{ user.sectionData.section_name }}</strong></p>
           </ion-col>
         </ion-row>
       </ion-grid>

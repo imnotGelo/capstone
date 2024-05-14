@@ -1,7 +1,13 @@
 {
-  "name": "mobile_app",
+  "name": "oras",
   "integrations": {
     "capacitor": {}
   },
-  "type": "angular"
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://orasedu.free.nf/CAPSTONE/backend"
+    }
+  ]
 }

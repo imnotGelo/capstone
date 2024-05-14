@@ -12,10 +12,10 @@
       <input type="text" maxlength="1" (input)="onInputChange(6, $event)" />
     </div>
 
-    <button (click)="verifyOTP()" [disabled]="timerExpired">Verify</button><br>
+    <button (click)="verifyOTP()" [disabled]="timerExpired" style="font-family:'Hubballi', sans-serif; font-size: 18px; font-weight: bold;">Verify</button><br>
     <div *ngIf="timerVisible">
-      <p>Expires at: {{ minutes }}:{{ seconds }}</p>
+      <p style="color: white;">Expires at: <strong style="color: yellow;">{{ minutes }}:{{ seconds }}</strong></p>
     </div>
-    <button *ngIf="timerExpired" >Request New OTP</button>
+    <button *ngIf="timerExpired" (click)="resendOTP()" style="font-family:'Hubballi', sans-serif; font-size: 16px; font-weight: bold;">Resend</button>
   </div>
 </ion-content>

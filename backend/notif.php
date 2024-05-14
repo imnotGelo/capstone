@@ -33,7 +33,7 @@ if (isset($data['LRN'])) {
             } else {
                 // LRN not found in students table
                 $response['status'] = "Error";
-                $response['message'] = "After reviewing your submission, the attachment is inappropriate, ensure that the image is clear. Please submit again.";
+                $response['message'] = "We've noticed that the image you've submitted is unclear. For better review, please upload a clearer version. Thank you!";
                 http_response_code(203); // Use appropriate HTTP status code for resource not found
             }
         }

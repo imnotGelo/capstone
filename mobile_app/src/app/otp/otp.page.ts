@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-otp',
@@ -10,12 +11,14 @@ import { ApiService } from '../api.service';
 })
 export class OtpPage implements OnInit {
  
-  constructor(
-    private http: HttpClient, 
-    private router: Router,
-    private route: ActivatedRoute,
-    private apiService: ApiService
-  ) { }
+  constructor(private router: Router,
+    private apiService: ApiService,
+    private alertController: AlertController) {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation && navigation.extras && navigation.extras.state) {
+      this.user = navigation.extras.state['user'];
+    } 
+   }
 
   otp: string[] = Array(6).fill(''); 
   timerVisible: boolean = true;
@@ -23,7 +26,9 @@ export class OtpPage implements OnInit {
   minutes: number = 0;
   seconds: number = 0;
   timer: any;
-  email: string = '';
+  user:any;
+  lrn:any;
+  email:string='';
 
   ngOnInit(): void {
     this.startTimer();
@@ -80,20 +85,60 @@ export class OtpPage implements OnInit {
     );
   }
 
+  resendOTP(): void {
+    this.apiService.resendOtp({ email: this.user.email }).subscribe(
+      async (res: any) => {
+        if (res.status === 'Success') {
+          this.resetTimer();
+          const alert = await this.alertController.create({
+            header: 'OTP Resent',
+            message: 'A new OTP has been sent to your email.',
+            buttons: ['OK']
+          });
+          await alert.present();
+        } else {
+          const alert = await this.alertController.create({
+            header: 'Error',
+            message: 'Failed to resend OTP. Please try again later.',
+            buttons: ['OK']
+          });
+          await alert.present();
+        }
+      },
+      async (err) => {
+        const alert = await this.alertController.create({
+          header: 'Error',
+          message: 'Failed to resend OTP. Please try again later.',
+          buttons: ['OK']
+        });
+        await alert.present();
+      }
+    );
+  }
+
   startTimer(): void {
-    const timerLimit = 3 * 5;
-    let timer = timerLimit;
+    const timerLimit = 1 * 60; 
+    this.timerExpired = false;
+    this.minutes = Math.floor(timerLimit / 60);
+    this.seconds = timerLimit % 60;
+
     this.timer = setInterval(() => {
-      this.minutes = Math.floor(timer / 60);
-      this.seconds = timer % 60;
-      if (timer <= 0) {
-        clearInterval(this.timer);
-        this.timerVisible = false;
-        this.timerExpired = true;
+      if (this.seconds === 0) {
+        if (this.minutes === 0) {
+          clearInterval(this.timer);
+          this.timerExpired = true;
+        } else {
+          this.minutes--;
+          this.seconds = 59;
+        }
       } else {
-        timer--;
+        this.seconds--;
       }
     }, 1000);
   }
 
+  resetTimer(): void {
+    clearInterval(this.timer);
+    this.startTimer();
+  }
 }

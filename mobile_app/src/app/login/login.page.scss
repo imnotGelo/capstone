@@ -58,6 +58,12 @@ div.title {
   font-size: 14px;
 }
 
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Remove inner spacing in Chrome */
+}
+
 .input::placeholder {
   color: #ffffff;
   font-weight: 20px; 
@@ -77,6 +83,10 @@ div.title {
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+  width: 17rem;
+  max-width: 90%;
+  margin: 5px;
 
   --background: #1B609D;
   --border-radius: 30px;

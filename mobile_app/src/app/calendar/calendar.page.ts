@@ -50,7 +50,7 @@ export class CalendarPage implements OnInit {
   
 
   fetchScheduleData() {
-    this.http.get<any[]>('http://192.168.1.107/CAPSTONE/backend/calendar.php')
+    this.http.get<any[]>('https://orasedu.free.nf/CAPSTONE/backend/calendar.php')
       .subscribe(data => {
         const backgroundColors = ['#E4DCCF', '#6D8B74', '#C2DED1', '#DBC4F0', '#BCCEF8', '#C7C8CC', '#92C7CF', '#FBF9F1', '#D2E0FB', '#C4D7B2', '#E3F4F4', '#D2E9E9']; // Add more colors as needed
 

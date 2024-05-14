@@ -50,7 +50,10 @@ export class SignUpPage implements OnInit {
       this.presentAlert('All fields are required.');
       return;
     }
-    
+    if (!this.validatePasswords()) {
+      return;
+    }
+
     const studentData = {
       lrn: this.lrn,
       firstname: this.firstname,
@@ -70,10 +73,31 @@ export class SignUpPage implements OnInit {
         }
       },
       (error: any) => {
-        console.error("Error:", error);
+        if (error.status === 406) {
+          this.LRNisExist();
+        } else if (error.status === 409) {
+          this.EmailisExist();
+        } else
         this.presentErrorAlert();
       }
     );
+  }
+  async LRNisExist() {
+    const alert = await this.alertController.create({
+      header: 'LRN Exist',
+      message: 'Oops! It looks like the LRN provided is already in use. Please review and attempt once more.',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+  async EmailisExist() {
+    const alert = await this.alertController.create({
+      header: 'Email Exist',
+      message: 'The email address has already been registered. Please verify and try again.',
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 
   presentErrorAlert() {
@@ -81,12 +105,25 @@ export class SignUpPage implements OnInit {
   }
   
   validatePasswords(): boolean {
-    if (this.password !== this.confirmPassword) {
+    const passwordPattern = /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/;
+    if(!passwordPattern.test(this.password)){
+      this.presentPasswordAlert();
+      return false;
+    } else if (this.password !== this.confirmPassword){
       this.presentMismatchAlert();
       return false;
     } else {
       return true;
     }
+  }
+
+  async presentPasswordAlert() {
+    const alert = await this.alertController.create({
+      header: 'Invalid Password',
+      message: 'Password must be at least 8 characters long and contain at least one letter and one number.',
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 
   async presentMismatchAlert() {

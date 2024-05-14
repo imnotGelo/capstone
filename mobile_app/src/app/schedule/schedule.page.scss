@@ -21,7 +21,7 @@ h1 {
 
 .container {
     padding: 20px;
-    margin-top: 20%;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -32,12 +32,11 @@ h1 {
     border-radius: 15px;
     margin-left: 1rem;
     margin-right: 1rem;
-    background: rgba( 255, 255, 224, 0.55 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 8px );
--webkit-backdrop-filter: blur( 8px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+    background: rgba( 255, 255, 255, 0.75 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 1px );
+    -webkit-backdrop-filter: blur( 1px );
+    border-radius: 10px;
  }
 
  .title{

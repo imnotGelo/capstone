@@ -26,6 +26,24 @@ $password = $data['password'];
 $address = $data['address'];
 $otp = generateOTP();
 
+$check_lrn_query = mysqli_query($con, "SELECT * FROM createuser WHERE lrn = '$lrn' AND `status` = 1");
+if(mysqli_num_rows($check_lrn_query) > 0) {
+    http_response_code(406);
+    $message['status'] = "Error";
+    $message['error'] = "LRN is already registered.";
+    echo json_encode($message);
+    exit; // Exit the script
+}
+
+$check_email_query = mysqli_query($con, "SELECT * FROM createuser WHERE email = '$email' AND `status` = 1");
+if(mysqli_num_rows($check_email_query) > 0) {
+    http_response_code(409);
+    $message['status'] = "Error";
+    $message['error'] = "Email is already registered. Try a new email.";
+    echo json_encode($message);
+    exit; // Exit the script
+}
+
 $q = mysqli_query($con, "INSERT INTO `createuser` (`lrn`,`firstname`,`middlename`,`lastname`, `email`,`password`,`address`, `otp`)
  VALUES ('$lrn', '$firstname','$middlename', '$lastname', '$email', '$password', '$address','$otp')");
 
@@ -44,8 +62,8 @@ if ($q) {
         $mail->setFrom('noreply@gmail.com'); 
         $mail->addAddress($email, $firstname . ' ' . $lastname);
         $mail->IsHTML(true); 
-        $mail->Subject = 'Your OTP for registration';
-        $mail->Body = "Dear $firstname,<br><br>"
+        $mail->Subject = 'Verify your Account';
+        $mail->Body = "Hi $firstname $lastname,<br><br>"
                     . "Thank you for enrolling with us! Your account security is important to us. Please use the following One-Time Passcode <strong>(OTP)</strong> to complete the verification process:<br><br>"
                     . "OTP: <strong>$otp</strong><br><br>"
                     . "If you have any questions or need assistance, feel free to reach out.<br><br>";

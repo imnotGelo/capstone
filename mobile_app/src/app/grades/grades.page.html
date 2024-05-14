@@ -3,13 +3,22 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512"><path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M328 112L184 256l144 144"/></svg>
     Back
   </ion-button>
-
-  <ion-button id="open-modal" expand="block" class="grade-card">S.Y {{currentYear}} - {{nextYear}}</ion-button>
+  <ion-card class="average-card">
+    <h4>SY {{currentYear}} - {{nextYear}}</h4>
+    <ion-button id="open-modal" expand="block" class="grade-card">
+      View Grades
+    </ion-button>
+    <p class="average">Average</p>
+    <p class="grading-value">1st Grading <span>{{ averageFirstGrading | number:'1.1-1' }}</span></p>
+    <p class="grading-value">2nd Grading <span>{{ averageSecondGrading | number:'1.1-1' }}</span></p>
+    <p class="grading-value">3rd Grading <span>{{ averageThirdGrading | number:'1.1-1' }}</span></p>
+    <p class="grading-value">4th Grading <span>{{ averageFourthGrading | number:'1.1-1' }}</span></p>
+  </ion-card>
   <ion-modal #modal trigger="open-modal" [canDismiss]="canDismiss" [presentingElement]="presentingElement">
     <ng-template>
       <ion-header>
         <ion-toolbar>
-          <ion-title>Grades for {{currentYear}} - {{nextYear}}</ion-title>
+          <ion-title>Grades for  {{currentYear}}-{{nextYear}}</ion-title>
           <ion-buttons slot="end">
             <ion-button (click)="modal.dismiss()">Close</ion-button>
           </ion-buttons>
@@ -41,6 +50,61 @@
                 <p><strong>4th Quarter</strong></p>
                 <p>......................................................................</p>
                 <p><strong>{{ grade.fourth_grading }}</strong></p>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-card class="average-card" *ngIf="isStudent && user.Oldgrades">
+    <h4>SY {{lastYear}} - {{currentYear}}</h4>
+    <ion-button id="open-modal1" expand="block" class="grade-card">
+      View Grades
+    </ion-button>
+    <p class="average">Average</p>
+    <p class="grading-value">1st Grading <span>{{ OldaverageFirstGrading | number:'1.1-1' }}</span></p>
+    <p class="grading-value">2nd Grading <span>{{ OldaverageSecondGrading | number:'1.1-1' }}</span></p>
+    <p class="grading-value">3rd Grading <span>{{ OldaverageThirdGrading | number:'1.1-1' }}</span></p>
+    <p class="grading-value">4th Grading <span>{{ OldaverageFourthGrading | number:'1.1-1' }}</span></p>
+  </ion-card>
+  <ion-modal #modal trigger="open-modal1" [canDismiss]="canDismiss" [presentingElement]="presentingElement">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Grades for  {{lastYear}}-{{currentYear}}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content style="background-color:#696969;">
+        <div *ngIf="isStudent && user.Oldgrades">
+          <ion-card *ngFor="let Oldgrade of user.Oldgrades" class="subjects">
+            <ion-card-header class="subject-name">
+              {{ Oldgrade.subject_name }}
+            </ion-card-header>
+            <ion-card-content class="grading">
+              <div style="display: flex; justify-content: space-between;">
+                <p><strong>1st Quarter</strong></p>
+                <p>......................................................................</p>
+                <p><strong>{{ Oldgrade.first_grading }}</strong></p>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <p><strong>2nd Quarter</strong></p>
+                <p>......................................................................</p>
+                <p><strong>{{ Oldgrade.second_grading }}</strong></p>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <p><strong>3rd Quarter</strong></p>
+                <p>......................................................................</p>
+                <p><strong>{{ Oldgrade.third_grading }}</strong></p>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <p><strong>4th Quarter</strong></p>
+                <p>......................................................................</p>
+                <p><strong>{{ Oldgrade.fourth_grading }}</strong></p>
               </div>
             </ion-card-content>
           </ion-card>

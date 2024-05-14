@@ -30,12 +30,7 @@ if ($result->num_rows == 1) {
         'middlename' => $row['middlename'],
         'lastname' => $row['lastname'],
         'email' => $row['email'],
-        'address' => $row['address'],
-        'contact_numb' => $row['contact_numb'],
-        'guardian_name' => $row['guardian_name'],
-        'guardian_number' => $row['guardian_number'],
-        'guardian_address' => $row['guardian_address'],
-        'birth_date' => $row['birth_date']
+        'address' => $row['address']
     );
 
     $stmt = $con->prepare("SELECT * FROM students WHERE LRN = ?");
@@ -78,6 +73,29 @@ if ($result->num_rows == 1) {
             $grades[] = $row;
         }
         $userData['grades'] = $grades;
+
+        $current_year = date('Y');
+        $previous_year = $current_year - 1;
+        $backup_table_name = "grade_backup_" . $previous_year;
+
+        $check_backup_table = $con->query("SHOW TABLES LIKE '$backup_table_name'");
+        if ($check_backup_table->num_rows == 1) {
+            // Backup table exists, proceed with the query
+            $stmt = $con->prepare("SELECT * FROM $backup_table_name WHERE LRN = ?");
+            $stmt->bind_param("s", $LRN);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            $Oldgrades = array();
+            while ($row = $result->fetch_assoc()) {
+                $Oldgrades[] = $row;
+            }
+            $userData['Oldgrades'] = $Oldgrades;
+        } else {
+            // Backup table does not exist
+            $userData['Oldgrades'] = "Backup table not found";
+        }
+        
     }
 
     http_response_code(200);

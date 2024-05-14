@@ -16,6 +16,18 @@ $report_card_tmp_name = $_FILES['report_card']['tmp_name'];
 $current_year = date('Y');
 $previous_year = $current_year - 1;
 $backup_table_name = "student_backup_" . $previous_year;
+
+// Check if backup table exists
+$check_backup_table_query = mysqli_query($con, "SHOW TABLES LIKE '$backup_table_name'");
+if(mysqli_num_rows($check_backup_table_query) == 0) {
+    http_response_code(404);
+    $message['status'] = "Error";
+    $message['error'] = "Backup table does not exist.";
+    echo json_encode($message);
+    exit; // Exit the script
+}
+
+// Check if LRN exists in the backup table
 $check_backup_query = mysqli_query($con, "SELECT * FROM $backup_table_name WHERE LRN = '$LRN'");
 if (mysqli_num_rows($check_backup_query) == 0) {
     http_response_code(406); 
@@ -24,14 +36,29 @@ if (mysqli_num_rows($check_backup_query) == 0) {
     echo json_encode($message);
     exit; // Exit the script
 }
+// Get the expected grade level from backup table
+$backup_grade_level_query = mysqli_query($con, "SELECT grade_level FROM $backup_table_name WHERE LRN = '$LRN'");
+$backup_grade_level_row = mysqli_fetch_assoc($backup_grade_level_query);
+$expected_grade_level = $backup_grade_level_row['grade_level'] + 1;
 
+// Check if the selected grade level is correct
+if ($grade_level != $expected_grade_level) {
+    http_response_code(400);
+    $message['status'] = "Error";
+    $message['error'] = "Invalid grade level.";
+    $message['expected_grade_level'] = $expected_grade_level;
+    echo json_encode($message);
+    exit; // Exit the script
+}
+
+// Check if LRN already exists in the database
 $check_query = mysqli_query($con, "SELECT * FROM studentpending WHERE LRN = '$LRN'");
 if (mysqli_num_rows($check_query) > 0) {
     http_response_code(409);
     $message['status'] = "Error";
     $message['error'] = "LRN already exists in the database.";
 } else {
-    $stmt = $con->prepare("INSERT INTO `studentpending` (`LRN`, `firstname`, `middlename`, `lastname`, `email`, `address`, `grade_level`, `strand`, `report_card`) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $con->prepare("INSERT INTO `studentpending` (`LRN`, `firstname`, `middlename`, `lastname`, `email`, `address`, `grade_level`, `strand`, `report_card`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $null = NULL;
     $stmt->bind_param("ssssssssb", $LRN, $firstname, $middlename, $lastname, $email, $address, $grade_level, $strand, $null);
 

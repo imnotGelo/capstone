@@ -4,12 +4,41 @@
 
   .back-button {
     font-family: 'Hubballi', sans-serif;
-    position:absolute;
-    top: 20px; 
-    left: 1rem;
-    margin: 10px;
+    margin: 20px 0 2rem 1rem; /* Adjusted margin */
     --border-radius: 10px;
     --background: linear-gradient(to top, #073965, #074276, #0F4C81, #155790, #1B609D);
+}
+
+h4{
+  font-family: 'Hubballi', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+  .average{
+    font-family: 'Hubballi', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .average-card {
+    margin: 0 35px 20px 35px; /* Adjusted margin */
+    padding: 15px; /* Adjust padding as needed */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+}
+
+  .grading-value {
+    display: flex;
+    justify-content: space-between; /* Align items to the right */
+    font-family: 'Hubballi', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 0; /* Reset default margin */
+  }
+  
+  .grading-value span {
+    margin-left: 10px; /* Add space between the label and value */
   }
 
   .grade-card {
