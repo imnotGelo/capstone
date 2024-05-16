@@ -45,9 +45,9 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/verifyOtp.php`, requestBody);
   } 
 
-  resendOtp(data: any) {
-    return this.http.post(`${this.baseUrl}/resendOtp.php`, data);
-  }
+  resendOtp(email: string) {
+    return this.http.post(`${this.baseUrl}/resendOtp.php`, { email: email });
+}
 
   login(LRN:number, password: string){
     return this.http.post(`${this.baseUrl}/login.php`, { LRN, password });

@@ -67,7 +67,7 @@ export class SignUpPage implements OnInit {
     this.apiService.signUp(studentData).subscribe(
       (response: any) => {
         if (response.status === "Success") {
-          this.router.navigate(['./otp']); 
+          this.router.navigate(['./otp'], { queryParams: { email: this.email } });
         } else {
           console.error("Error:", response.error);
         }

@@ -157,9 +157,5 @@ export class LandingPage implements OnInit {
     this.navCtrl.navigateForward('/schedule', { state: { user: this.user } });
   }
 
-  otp() {
-    this.navCtrl.navigateForward('/otp', { state: { user: this.user } });
-  }
-
 
 }

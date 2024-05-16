@@ -22,10 +22,11 @@ h4{
   }
 
   .average-card {
-    margin: 0 35px 20px 35px; /* Adjusted margin */
-    padding: 15px; /* Adjust padding as needed */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    margin: 0 35px 20px 35px; 
+    padding: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(207, 56, 56, 0.1); 
+    --background: rgb(238, 238, 238);
 }
 
   .grading-value {

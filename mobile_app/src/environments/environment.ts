@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://orasedu.free.nf/CAPSTONE/backend'
+  apiUrl: 'https://www.oraswebsys.online/backend'
 };

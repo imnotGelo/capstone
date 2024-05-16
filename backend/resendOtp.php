@@ -16,14 +16,13 @@ function generateOTP($length = 6) {
 
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
-$message = array();
 $email = $data['email'];
 $otp = generateOTP();
 
 $update_query = mysqli_query($con, "UPDATE `createuser` SET `otp` = '$otp' WHERE `email` = '$email'");
 
 if ($update_query) {
-    // Send email with OTP
+    // Send email with new OTP
     $mail = new PHPMailer(true);
     try {
         $mail->isSMTP();
@@ -37,22 +36,43 @@ if ($update_query) {
         $mail->setFrom('noreply@gmail.com'); 
         $mail->addAddress($email);
         $mail->IsHTML(true); 
-        $mail->Subject = 'Resend OTP';
-        $mail->Body = "Your new OTP is: <strong>$otp</strong>";
+        $mail->Subject = 'Requested new OTP';
+        $mail->Body = '<html>
+<head>
+    <style>
+        .container {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .logo {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <img src="/assets/logo.png" alt="Your App Logo" class="logo">
+    <p>Dear valued user,</p>
+        <p>We\'ve received your request for a new <strong>OTP</strong>. Your security is our top priority, so here\'s your freshly generated One-Time Password to access your account:</p>
+        <p><strong>OTP:</strong> ' . $otp . '</p>
+        <p>If you have any questions or need assistance, feel free to reach out.</p>
+    </div>
+</body>
+</html>';
         $mail->send();
 
         http_response_code(200);
-        $message['status'] = "Success";
+        echo json_encode(["status" => "Success", "message" => "OTP resent successfully"]);
     } catch (Exception $e) {
         http_response_code(500);
-        $message['status'] = "Error";
-        $message['error'] = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+        echo json_encode(["status" => "Error", "message" => "Failed to send email. Error: " . $mail->ErrorInfo]);
     }
 } else {
-    http_response_code(422);
-    $message['status'] = "Error";
-    $message['error'] = mysqli_error($con);
+    http_response_code(500);
+    echo json_encode(["status" => "Error", "message" => "Failed to update OTP"]);
 }
-
-echo json_encode($message);
 ?>

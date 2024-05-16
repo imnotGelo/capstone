@@ -14,5 +14,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // Other PHP code goes here
-$con = mysqli_connect("sql211.infinityfree.com", "if0_36531487", "orasdbest", "if0_36531487_oras") or die ("could not connect to DB");
+$con = mysqli_connect("localhost", "u500309822_orasdbun", "Orasdbest2024!", "u500309822_oras") or die ("could not connect to DB");
 ?>
