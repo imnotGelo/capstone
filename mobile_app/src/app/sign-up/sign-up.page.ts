@@ -46,7 +46,7 @@ export class SignUpPage implements OnInit {
   }
   
   signUp() {
-    if (!this.lrn || !this.firstname || !this.middlename || !this.lastname || !this.email || !this.password || !this.confirmPassword) {
+    if (!this.lrn || !this.firstname || !this.lastname || !this.email || !this.password || !this.confirmPassword) {
       this.presentAlert('All fields are required.');
       return;
     }
@@ -57,7 +57,6 @@ export class SignUpPage implements OnInit {
     const studentData = {
       lrn: this.lrn,
       firstname: this.firstname,
-      middlename: this.middlename,
       lastname: this.lastname,
       email: this.email,
       password: this.password,
